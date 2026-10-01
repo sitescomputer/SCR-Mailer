@@ -38,7 +38,7 @@
             }
 
             .button {
-                background: #0055d4;
+                background: #1179b6;
                 border-radius: 3px;
                 text-decoration: none !important;
                 color: #fff !important;
@@ -70,7 +70,7 @@
             }
 
             a {
-                color: #0055d4;
+                color: #1179b6;
             }
                 a:hover {
                     color: #111;
@@ -97,12 +97,12 @@
         <p>
             Transactional templates supports arbitrary parameters.
             Render them using <code>.Tx.Data.YourParamName</code>. For more information,
-            see the transactional mailing <a href="https://listmonk.app/docs/transactional">documentation</a>.
+            see the transactional mailing <a href="https://github.com/sitescomputer/SCR-Mailer/blob/master/docs/docs/content/apis/transactional.md">documentation</a>.
         </p>
     </div>
     
     <div class="footer" style="text-align: center;font-size: 12px;color: #888;">
-        <p>{{ L.T "public.poweredBy" }} <a href="https://listmonk.app" target="_blank" rel="noreferrer" style="color: #888;">listmonk</a></p>
+        <p>{{ ProductName }} by <a href="{{ CompanyURL }}" target="_blank" rel="noreferrer" style="color: #888;">{{ CompanyName }}</a></p>
     </div>
 </body>
 </html>

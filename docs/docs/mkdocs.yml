@@ -1,4 +1,4 @@
-site_name: listmonk / Documentation
+site_name: SCR Mailer / Documentation
 theme:
   name: material
   # custom_dir: "mkdocs-material/material"
@@ -21,7 +21,7 @@ theme:
 
   palette:
     primary: "white"
-    accent: "red"
+    accent: "blue"
 
 site_dir: _out
 docs_dir: content
@@ -44,7 +44,7 @@ nav:
     - "Installation": installation.md
     - "Configuration": configuration.md
     - "Upgrade": upgrade.md
-  - "Using listmonk":
+  - "Using SCR Mailer":
     - "Concepts": concepts.md
     - "Templating": templating.md
     - "Querying and segmenting subscribers": querying-and-segmentation.md

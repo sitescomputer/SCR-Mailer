@@ -8,6 +8,7 @@ import (
 	"regexp"
 	"strconv"
 
+	"github.com/knadh/listmonk/branding"
 	"github.com/knadh/listmonk/internal/auth"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -238,7 +239,7 @@ func initHTTPHandlers(e *echo.Echo, a *App) {
 
 		// Landing page.
 		g.GET("/", func(c echo.Context) error {
-			return c.Render(http.StatusOK, "home", publicTpl{Title: "listmonk"})
+			return c.Render(http.StatusOK, "home", publicTpl{Title: branding.Current.ProductName})
 		})
 
 		// Public admin endpoints (login page, OIDC endpoints, password reset).

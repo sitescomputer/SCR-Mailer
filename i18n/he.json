@@ -399,7 +399,7 @@
     "settings.bounces.action": "פעולה",
     "settings.bounces.azureSharedSecret": "Azure Event Grid Shared Secret",
     "settings.bounces.azureSharedSecretHeader": "שם כותרת Azure Shared Secret",
-    "settings.bounces.azureSharedSecretHeaderHelp": "שם כותרת HTTP אופציונלי לקריאת ה- Azure shared secret. אם ריק, listmonk משתמש ב- X-Listmonk-Webhook-Secret.",
+    "settings.bounces.azureSharedSecretHeaderHelp": "שם כותרת HTTP אופציונלי לקריאת ה- Azure shared secret. אם ריק, SCR Mailer משתמש ב- X-Listmonk-Webhook-Secret.",
     "settings.bounces.azureSharedSecretHelp": "ספק את הסוד המשותף שהוגדר לנקודת הקצה webhook של Azure Event Grid שלך.",
     "settings.bounces.blocklist": "רשימה שחורה",
     "settings.bounces.count": "ספירת השטחות",

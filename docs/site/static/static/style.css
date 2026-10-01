@@ -38,7 +38,7 @@ section:not(:last-child) {
   margin-bottom: 100px;
 }
 a {
-  color: #0055d4;
+  color: #1179b6;
   text-decoration: none;
 }
 a:hover {
@@ -93,7 +93,7 @@ figcaption {
 }
 
 .button {
-  background: #0055d4;
+  background: #1179b6;
   display: inline-block;
   text-align: center;
   font-weight: 600;

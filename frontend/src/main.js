@@ -7,6 +7,10 @@ import router from './router';
 import store from './store';
 import * as api from './api';
 import Utils from './utils';
+import brand, { docsURL } from './branding';
+
+Vue.prototype.$brand = brand;
+Vue.prototype.$docs = docsURL;
 
 // Internationalisation.
 Vue.use(VueI18n);
@@ -27,7 +31,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to) => {
   Vue.nextTick(() => {
     const t = to.meta.title && i18n.te(to.meta.title) ? `${i18n.tc(to.meta.title, 0)} /` : '';
-    document.title = `${t} listmonk`;
+    document.title = `${t} ${brand.productName}`;
   });
 });
 
@@ -80,7 +84,7 @@ async function initConfig(app) {
   // Set the page title after i18n has loaded.
   const to = router.history.current;
   const title = to.meta.title ? `${i18n.tc(to.meta.title, 0)} /` : '';
-  document.title = `${title} listmonk`;
+  document.title = `${title} ${brand.productName}`;
 
   if (app) {
     app.$mount('#app');

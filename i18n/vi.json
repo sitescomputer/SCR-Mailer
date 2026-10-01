@@ -399,7 +399,7 @@
     "settings.bounces.action": "Hành động",
     "settings.bounces.azureSharedSecret": "Azure Event Grid Shared Secret",
     "settings.bounces.azureSharedSecretHeader": "Tên Header Azure Shared Secret",
-    "settings.bounces.azureSharedSecretHeaderHelp": "Tên header HTTP tùy chọn để đọc Azure shared secret. Nếu để trống, listmonk sẽ sử dụng X-Listmonk-Webhook-Secret.",
+    "settings.bounces.azureSharedSecretHeaderHelp": "Tên header HTTP tùy chọn để đọc Azure shared secret. Nếu để trống, SCR Mailer sẽ sử dụng X-Listmonk-Webhook-Secret.",
     "settings.bounces.azureSharedSecretHelp": "Cung cấp shared secret đã cấu hình cho webhook endpoint của Azure Event Grid của bạn.",
     "settings.bounces.blocklist": "Danh sách chặn",
     "settings.bounces.count": "Số trang không truy cập",

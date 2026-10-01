@@ -28,10 +28,11 @@
 			<div class="logo">
 				<a href="{{ if .EnablePublicSubPage }}{{ .RootURL}}/subscription/form{{ end }}">
 				{{ if ne .LogoURL "" }}
-					<img src="{{ .LogoURL }}" alt="{{ .Data.Title }}" />
+					<img src="{{ .LogoURL }}" alt="{{ CompanyName }}" />
 				{{ else }}
-					<img src="/public/static/logo.svg?v={{ .AssetVersion }}" alt="{{ .Data.Title }}" />
+					<img src="/public/static/logo.png?v={{ .AssetVersion }}" alt="{{ CompanyName }}" />
 				{{ end }}
+				<span class="brand-copy"><strong>{{ ProductName }}</strong><small>{{ CompanyName }}</small></span>
 				</a>
 			</div>
 		</header>
@@ -41,7 +42,7 @@
 	</div>
 	
 	<footer class="container">
-		{{ L.T "public.poweredBy" }} <a target="_blank" rel="noreferrer" href="https://listmonk.app">listmonk</a>
+		{{ ProductName }} by <a target="_blank" rel="noreferrer" href="{{ CompanyURL }}">{{ CompanyName }}</a>
 	</footer>
 </body>
 </html>

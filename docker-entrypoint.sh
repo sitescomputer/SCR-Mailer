@@ -64,7 +64,7 @@ if ! chown -R ${PUID}:${PGID} /listmonk 2>/dev/null; then
   echo "Warning: Failed to change ownership of /listmonk. Readonly volume?"
 fi
 
-echo "Launching listmonk with user=[${USER_NAME}] group=[${GROUP_NAME}] PUID=[${PUID}] PGID=[${PGID}]"
+echo "Launching SCR Mailer with user=[${USER_NAME}] group=[${GROUP_NAME}] PUID=[${PUID}] PGID=[${PGID}]"
 
 # If running as root and PUID is not 0, then execute command as PUID
 # this allows us to run the container as a non-root user

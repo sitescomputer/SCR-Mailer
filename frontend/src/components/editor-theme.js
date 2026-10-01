@@ -13,19 +13,19 @@ const selection = '#add6ff';
 const selectionMatch = '#a8ac94';
 const lineHighlight = '#99999926';
 const gutterBackground = '#ffffff';
-const gutterForeground = '#0055d4';
+const gutterForeground = '#1179b6';
 const gutterActiveForeground = '#0b216f';
-const keywordColor = '#0055d4';
+const keywordColor = '#1179b6';
 const controlKeywordColor = '#af00db';
 const variableColor = '#e45649';
-const classTypeColor = '#0055d4';
+const classTypeColor = '#1179b6';
 const functionColor = '#795e26';
 const numberColor = '#098658';
 const operatorColor = '#383a42';
 const regexpColor = '#af00db';
 const stringColor = '#50a14f';
 const commentColor = '#999';
-const linkColor = '#0055d4';
+const linkColor = '#1179b6';
 const invalidColor = '#e45649';
 
 // Define the editor theme styles for VSCode Light

@@ -4,8 +4,11 @@
       <template #brand>
         <div class="logo">
           <router-link :to="{ name: 'dashboard' }">
-            <img class="full" src="@/assets/logo.svg" alt="" />
-            <img class="favicon" src="@/assets/favicon.png" alt="" />
+            <img class="scr-brand-logo" src="@/assets/logo.png" :alt="$brand.companyName" />
+            <span class="scr-brand-copy">
+              <strong>{{ $brand.productName }}</strong>
+              <small>{{ $brand.companyName }}</small>
+            </span>
           </router-link>
         </div>
       </template>
@@ -96,7 +99,7 @@
             before removing them. Visit
             <router-link :to="{ name: 'users' }">
               Admin -> Settings -> Users
-            </router-link> dashboard. <a href="https://listmonk.app/docs/upgrade/#upgrading-to-v4xx" target="_blank"
+            </router-link> dashboard. <a :href="$docs('upgrade', 'upgrading-to-v4xx')" target="_blank"
               rel="noopener noreferer">Learn more.</a>
           </div>
         </div>

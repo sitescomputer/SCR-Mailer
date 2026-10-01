@@ -399,7 +399,7 @@
     "settings.bounces.action": "Azione",
     "settings.bounces.azureSharedSecret": "Azure Event Grid Shared Secret",
     "settings.bounces.azureSharedSecretHeader": "Nome header Azure Shared Secret",
-    "settings.bounces.azureSharedSecretHeaderHelp": "Nome opzionale dell'header HTTP da cui leggere il segreto condiviso Azure. Se vuoto, listmonk utilizza X-Listmonk-Webhook-Secret.",
+    "settings.bounces.azureSharedSecretHeaderHelp": "Nome opzionale dell'header HTTP da cui leggere il segreto condiviso Azure. Se vuoto, SCR Mailer utilizza X-Listmonk-Webhook-Secret.",
     "settings.bounces.azureSharedSecretHelp": "Fornisci il segreto condiviso configurato per il tuo endpoint webhook Azure Event Grid.",
     "settings.bounces.blocklist": "Elenco bloccato",
     "settings.bounces.count": "Numero di rimbalzi",

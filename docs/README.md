@@ -1,9 +1,10 @@
-# Static website and docs
+# SCR Mailer documentation
 
-This repository contains the source for the static website https://listmonk.app
+Documentation and the optional product website for SCR Mailer by Sites Computer Resources.
 
-- The website is in `site` and is built with hugo (run `hugo serve` inside `site` to preview).
+- `docs/content`: user and developer documentation, built with MkDocs Material.
+- `site`: optional Hugo product website. Its default URL is the repository's GitHub Pages address.
+- `i18n`: translation editor.
 
-- Documentation is in `docs` and is built with mkdocs (inside `docs`, run `mkdocs serve` to preview after running `pip install -r requirements.txt`)
-
-- `i18n` directory has the static UI for i18n translations: https://listmonk.app/i18n
+The docs derive from [listmonk](https://github.com/knadh/listmonk). See [upstream attribution](../UPSTREAM.md).
+Deployment is manual through the GitHub Pages workflow; configure GitHub Pages before publishing.

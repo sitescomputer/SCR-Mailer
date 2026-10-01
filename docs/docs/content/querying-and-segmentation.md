@@ -1,6 +1,6 @@
 # Querying and segmenting subscribers
 
-listmonk allows the writing of partial Postgres SQL expressions to query, filter, and segment subscribers.
+SCR Mailer allows the writing of partial Postgres SQL expressions to query, filter, and segment subscribers.
 
 ## Database fields
 
@@ -34,11 +34,11 @@ Here's a sample JSON map of attributes assigned to an imaginary subscriber.
 }
 ```
 
-![listmonk screenshot](images/edit-subscriber.png)
+![SCR Mailer screenshot](images/edit-subscriber.png)
 
 ## Sample SQL query expressions
 
-![listmonk](images/query-subscribers.png)
+![SCR Mailer](images/query-subscribers.png)
 
 #### Find a subscriber by e-mail
 

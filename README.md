@@ -1,47 +1,46 @@
-<a href="https://zerodha.tech"><img src="https://zerodha.tech/static/images/github-badge.svg" align="right" /></a>
+# SCR Mailer
 
-[![listmonk-logo](https://user-images.githubusercontent.com/547147/231084896-835dba66-2dfe-497c-ba0f-787564c0819e.png)](https://listmonk.app)
+<img src="branding/scr-logo.png" alt="Sites Computer Resources" width="180" />
 
-listmonk is a standalone, self-hosted, newsletter and mailing list manager. It is fast, feature-rich, and packed into a single binary. It uses a PostgreSQL database as its data store.
+**SCR Mailer by Sites Computer Resources** is a self-hosted newsletter, mailing list, and transactional email application. It uses PostgreSQL and includes an admin dashboard, visual email editor, subscriber management, campaign tracking, and delivery integrations.
 
-[![listmonk-dashboard](https://github.com/user-attachments/assets/689b5fbb-dd25-4956-a36f-e3226a65f9c4)](https://listmonk.app)
+![SCR Mailer dashboard preview with sample data](docs/docs/content/images/scr-dashboard.png)
 
-Visit [listmonk.app](https://listmonk.app) for more info. Check out the [**live demo**](https://demo.listmonk.app).
+## Run with Docker
 
-## Installation
-
-### Docker
-
-The latest image is available on DockerHub at [`listmonk/listmonk:latest`](https://hub.docker.com/r/listmonk/listmonk/tags?page=1&ordering=last_updated&name=latest).
-Download and use the sample [docker-compose.yml](https://github.com/knadh/listmonk/blob/master/docker-compose.yml).
-
-
-```shell
-# Download the compose file to the current directory.
-curl -LO https://github.com/knadh/listmonk/raw/master/docker-compose.yml
-
-# Run the services in the background.
-docker compose up -d
+```sh
+git clone https://github.com/sitescomputer/SCR-Mailer.git
+cd SCR-Mailer
+docker compose up -d --build
 ```
-Visit `http://localhost:9000`
 
-See [installation docs](https://listmonk.app/docs/installation)
+Open http://localhost:9000 and complete administrator setup. Configure your real public URL, SMTP service and sender address in Settings before sending mail.
 
-__________________
+The Compose file builds **this fork**, including SCR branding, rather than downloading an upstream image. Release images are published to `ghcr.io/sitescomputer/scr-mailer` when an SCR release tag is pushed and the release workflow succeeds. See [installation](docs/docs/content/installation.md).
 
-### Binary
-- Download the [latest release](https://github.com/knadh/listmonk/releases) and extract the listmonk binary.
-- `./listmonk --new-config` to generate config.toml. Edit it.
-- `./listmonk --install` to setup the Postgres DB (or `--upgrade` to upgrade an existing DB. Upgrades are idempotent and running them multiple times have no side effects).
-- Run `./listmonk` and visit `http://localhost:9000`
+## Build from source
 
-See [installation docs](https://listmonk.app/docs/installation)
-__________________
+Use the Go version in `.go-version`, Node.js 22, Yarn Classic and GNU Make (on Windows, use WSL or the development container):
 
+```sh
+make dist
+./scr-mailer --new-config
+# Edit config.toml with your PostgreSQL connection settings.
+./scr-mailer --install
+./scr-mailer
+```
 
-## Developers
-listmonk is free and open source software licensed under AGPLv3. If you are interested in contributing, refer to the [developer setup](https://listmonk.app/docs/developer-setup). The backend is written in Go and the frontend is Vue with Buefy for UI. 
+## Branding and upstream updates
 
+- [Branding configuration](branding/README.md)
+- [Maintaining upstream updates](docs/UPSTREAM-UPDATES.md)
+- [Documentation](docs/docs/content/index.md)
+- [Support and issues](https://github.com/sitescomputer/SCR-Mailer/issues)
 
-## License
-listmonk is licensed under the AGPL v3 license.
+The product and company identity are shared by the Go backend and Vue frontend through `branding/brand.json`. The supplied SCR logo is preserved unchanged in `branding/scr-logo.png`.
+
+For an existing installation, review `scripts/apply-branding.sql` and the branding guide. A database backup is required before database upgrades. Existing custom sender addresses, root URLs and templates need deployment-specific review.
+
+## License and attribution
+
+SCR Mailer is based on [listmonk](https://github.com/knadh/listmonk), created by Kailash Nadh and contributors. The original [AGPLv3 license](LICENSE) is preserved. See [upstream attribution](UPSTREAM.md).

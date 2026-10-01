@@ -18,6 +18,7 @@ import (
 	"maps"
 
 	"github.com/Masterminds/sprig/v3"
+	"github.com/knadh/listmonk/branding"
 	"github.com/knadh/listmonk/internal/i18n"
 	"github.com/knadh/listmonk/internal/notifs"
 	"github.com/knadh/listmonk/models"
@@ -148,6 +149,7 @@ type Config struct {
 	ViewTrackURL          string
 	ArchiveURL            string
 	RootURL               string
+	LogoURL               string
 	UnsubHeader           bool
 
 	// Interval to scan the DB for active campaign checkpoints.
@@ -660,6 +662,7 @@ func (m *Manager) sendNotif(c *models.Campaign, status, reason string) error {
 // functions and sprig template functions.
 func (m *Manager) makeGnericFuncMap() template.FuncMap {
 	funcs := template.FuncMap{
+		"LogoURL": func() string { return m.cfg.LogoURL },
 		"Date": func(layout string) string {
 			if layout == "" {
 				layout = time.ANSIC
@@ -673,6 +676,8 @@ func (m *Manager) makeGnericFuncMap() template.FuncMap {
 			return template.HTML(safeHTML)
 		},
 	}
+
+	maps.Copy(funcs, branding.TemplateFuncs())
 
 	// Copy spring functions.
 	sprigFuncs := sprig.GenericFuncMap()

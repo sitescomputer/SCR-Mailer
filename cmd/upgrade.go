@@ -116,7 +116,7 @@ func checkUpgrade(db *sqlx.DB) {
 		vers = append(vers, m.version)
 	}
 
-	lo.Fatalf(`there are %d pending database upgrade(s): %v. The last upgrade was %s. Backup the database and run listmonk --upgrade`,
+	lo.Fatalf(`there are %d pending database upgrade(s): %v. The last upgrade was %s. Backup the database and run scr-mailer --upgrade`,
 		len(toRun), vers, lastVer)
 }
 

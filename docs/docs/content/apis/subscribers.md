@@ -42,7 +42,7 @@ Retrieve all subscribers.
 ##### Example Request
 
 ```shell
-curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers?page=1&per_page=100' 
+curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers?page=1&per_page=100'
 ```
 
 ```shell
@@ -149,7 +149,7 @@ Retrieve a specific subscriber.
 ##### Example Request
 
 ```shell
-curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/1' 
+curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/1'
 ```
 
 ##### Example Response
@@ -190,7 +190,7 @@ ______________________________________________________________________
 
 #### GET /api/subscribers/{subscriber_id}/export
 
-Export a specific subscriber data that gives profile, list subscriptions, campaign views and link clicks information. Names of private lists are replaced with "Private list". 
+Export a specific subscriber data that gives profile, list subscriptions, campaign views and link clicks information. Names of private lists are replaced with "Private list".
 
 ##### Parameters
 
@@ -201,7 +201,7 @@ Export a specific subscriber data that gives profile, list subscriptions, campai
 ##### Example Request
 
 ```shell
-curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/1/export' 
+curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/1/export'
 ```
 
 ##### Example Response
@@ -250,7 +250,7 @@ Get a specific subscriber bounce records.
 ##### Example Request
 
 ```shell
-curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/1/bounces' 
+curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/1/bounces'
 ```
 
 ##### Example Response
@@ -271,7 +271,7 @@ curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/1/bou
       "subscriber_id": 99,
       "campaign": {
         "id": 2,
-        "name": "Welcome to listmonk"
+        "name": "Welcome to SCR Mailer"
       }
     },
     {
@@ -358,7 +358,7 @@ curl -u 'api_username:access_token' 'http://localhost:9000/api/subscribers/11/op
 ```json
 {
     "data": true
-} 
+}
 ```
 ______________________________________________________________________
 
@@ -426,7 +426,7 @@ curl -u 'api_username:access_token' -X PUT 'http://localhost:9000/api/subscriber
 ```json
 {
     "data": true
-} 
+}
 ```
 ______________________________________________________________________
 
@@ -560,7 +560,7 @@ curl -u 'api_username:access_token' -X PUT 'http://localhost:9000/api/subscriber
 ```json
 {
     "data": true
-} 
+}
 ```
 
 ______________________________________________________________________
@@ -586,7 +586,7 @@ curl -u 'api_username:access_token' -X PUT 'http://localhost:8080/api/subscriber
 ```json
 {
     "data": true
-} 
+}
 ```
 
 ______________________________________________________________________

@@ -1,5 +1,5 @@
 {
-  "name": "listmonk",
+  "name": "scr-mailer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "serve": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore src",
     "prebuild": "eslint --ext .js,.vue --ignore-path .gitignore src",
-    "postinstall": "cp node_modules/altcha/dist/altcha.umd.cjs ../static/public/static/altcha.umd.js"
+    "postinstall": "node ../scripts/copy-altcha.cjs"
   },
   "dependencies": {
     "@codemirror/commands": "^6.8.1",

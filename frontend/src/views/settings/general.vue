@@ -7,26 +7,26 @@
 
     <b-field :label="$t('settings.general.rootURL')" label-position="on-border"
       :message="$t('settings.general.rootURLHelp')">
-      <b-input v-model="data['app.root_url']" name="app.root_url" placeholder="https://listmonk.yoursite.com"
+      <b-input v-model="data['app.root_url']" name="app.root_url" placeholder="https://mailer.example.com"
         :maxlength="300" required type="url" pattern="https?://.*" />
     </b-field>
 
     <b-field :label="$t('settings.general.logoURL')" label-position="on-border"
       :message="$t('settings.general.logoURLHelp')">
-      <b-input v-model="data['app.logo_url']" name="app.logo_url" placeholder="https://listmonk.yoursite.com/logo.png"
+      <b-input v-model="data['app.logo_url']" name="app.logo_url" placeholder="https://mailer.example.com/logo.png"
         :maxlength="300" type="url" pattern="https?://.*" />
     </b-field>
     <b-field :label="$t('settings.general.faviconURL')" label-position="on-border"
       :message="$t('settings.general.faviconURLHelp')">
       <b-input v-model="data['app.favicon_url']" name="app.favicon_url"
-        placeholder="https://listmonk.yoursite.com/favicon.png" :maxlength="300" type="url" pattern="https?://.*" />
+        placeholder="https://mailer.example.com/favicon.png" :maxlength="300" type="url" pattern="https?://.*" />
     </b-field>
 
     <hr />
     <b-field :label="$t('settings.general.fromEmail')" label-position="on-border"
       :message="$t('settings.general.fromEmailHelp')">
       <b-input v-model="data['app.from_email']" name="app.from_email"
-        placeholder="Listmonk <noreply@listmonk.yoursite.com>" pattern="((.+?)\s)?<(.+?)@(.+?)>" :maxlength="300" />
+        placeholder="Sites Computer Resources <noreply@example.com>" pattern="((.+?)\s)?<(.+?)@(.+?)>" :maxlength="300" />
     </b-field>
     <b-field :label="$t('settings.general.adminNotifEmails')" label-position="on-border"
       :message="$t('settings.general.adminNotifEmailsHelp')">
@@ -76,9 +76,9 @@
 
     <hr />
     <b-field :message="$t('settings.general.checkUpdatesHelp')">
-      <b-switch v-model="data['app.check_updates']" name="app.check_updates">
-        {{ $t('settings.general.checkUpdates') }}
-      </b-switch>
+      <a :href="$brand.repositoryURL + '/releases'" target="_blank" rel="noopener noreferrer">
+        {{ $brand.productName }} releases
+      </a>
     </b-field>
 
     <hr />
@@ -89,7 +89,7 @@
         </option>
       </b-select>
       <p class="mt-2">
-        <a href="https://listmonk.app/docs/i18n/#additional-language-packs" target="_blank" rel="noopener noreferer">{{
+        <a :href="$docs('i18n', 'additional-language-packs')" target="_blank" rel="noopener noreferer">{{
           $t('globals.buttons.more') }} &rarr;</a>
       </p>
     </b-field>

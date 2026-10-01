@@ -18,6 +18,7 @@ FRONTEND_DEPS = \
 	$(FRONTEND_EMAIL_BUILDER_DIST_FINAL) \
 	frontend/index.html \
 	frontend/package.json \
+	branding/brand.json \
 	frontend/vite.config.js \
 	frontend/.eslintrc.js \
 	$(shell find frontend/fontello frontend/public frontend/src -type f)
@@ -32,7 +33,7 @@ FRONTEND_EMAIL_BUILDER_DEPS = \
 	$(FRONTEND_EMAIL_BUILDER)/vite.config.ts \
 	$(shell find $(FRONTEND_EMAIL_BUILDER)/src -type f)
 
-BIN := listmonk
+BIN := scr-mailer
 STATIC := config.toml.sample \
 	schema.sql queries:/queries permissions.json \
 	static/public:/public \
@@ -41,7 +42,7 @@ STATIC := config.toml.sample \
 	i18n:/i18n
 
 SQL := $(shell find . -type f -name "*.sql") $(shell find queries -type f -name "*.sql")
-SRC := $(shell find . -type f -name "*.go")
+SRC := $(shell find . -path ./.tools -prune -o -path ./frontend/node_modules -prune -o -path ./frontend/email-builder/node_modules -prune -o -type f -name "*.go" -print)
 
 .PHONY: build
 build: $(BIN)
@@ -53,12 +54,12 @@ $(FRONTEND_YARN_MODULES): frontend/package.json frontend/yarn.lock
 	cd frontend && $(YARN) install
 	touch -c $(FRONTEND_YARN_MODULES)
 
-$(FRONTEND_EMAIL_BUILDER_YARN_MODULES): frontend/package.json frontend/yarn.lock
+$(FRONTEND_EMAIL_BUILDER_YARN_MODULES): $(FRONTEND_EMAIL_BUILDER)/package.json $(FRONTEND_EMAIL_BUILDER)/yarn.lock
 	cd $(FRONTEND_EMAIL_BUILDER) && $(YARN) install
 	touch -c $(FRONTEND_EMAIL_BUILDER_YARN_MODULES)
 
-# Build the backend to ./listmonk.
-$(BIN): $(SRC) go.mod go.sum schema.sql $(SQL) permissions.json
+# Build the backend to ./scr-mailer.
+$(BIN): $(SRC) branding/brand.json go.mod go.sum schema.sql $(SQL) permissions.json
 	CGO_ENABLED=0 go build -o ${BIN} -ldflags="-s -w -X 'main.buildString=${BUILDSTR}' -X 'main.versionString=${VERSION}'" ./cmd
 
 # Run the backend in dev mode. The frontend assets in dev mode are loaded from disk from frontend/dist.
@@ -98,7 +99,7 @@ run-frontend: $(FRONTEND_EMAIL_BUILDER_DIST_FINAL)
 test:
 	go test ./...
 
-# Bundle all static assets including the JS frontend into the ./listmonk binary
+# Bundle all static assets including the JS frontend into the ./scr-mailer binary
 # using stuffbin (installed with make deps).
 .PHONY: dist
 dist: $(STUFFBIN) build build-frontend pack-bin
@@ -146,4 +147,4 @@ rm-dev-docker: build ## Delete the docker containers including DB volumes.
 .PHONY: init-dev-docker
 init-dev-docker: build-dev-docker ## Delete the docker containers including DB volumes.
 	cd dev; \
-	docker compose run --rm backend sh -c "make dist && ./listmonk --install --idempotent --yes --config dev/config.toml"
+	docker compose run --rm backend sh -c "make dist && ./scr-mailer --install --idempotent --yes --config dev/config.toml"

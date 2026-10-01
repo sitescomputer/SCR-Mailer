@@ -7,19 +7,22 @@ x-db-credentials: &db-credentials                             # Use the default 
   POSTGRES_DB: &db-name listmonk
 
 services:
-  # listmonk app
+  # SCR Mailer app
   app:
-    image: listmonk/listmonk:latest
-    container_name: listmonk_app
+    image: scr-mailer:local
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+    container_name: scr_mailer_app
     restart: unless-stopped
     ports:
       - "9000:9000"                                           # To change the externally exposed port, change to: $custom_port:9000
     networks:
       - listmonk
-    hostname: listmonk.example.com                            # Recommend using FQDN for hostname
+    hostname: mailer.example.com                            # Recommend using FQDN for hostname
     depends_on:
       - db
-    command: [sh, -c, "./listmonk --install --idempotent --yes --config '' && ./listmonk --upgrade --yes --config '' && ./listmonk --config ''"]
+    command: [sh, -c, "./scr-mailer --install --idempotent --yes --config '' && ./scr-mailer --upgrade --yes --config '' && ./scr-mailer --config ''"]
                                                               # --config (file) param is set to empty so that listmonk only uses the env vars (below) for config.
                                                               # --install --idempotent ensures that DB installation happens only once on an empty DB, on the first ever start.
                                                               # --upgrade automatically runs any DB migrations when a new image is pulled.
@@ -45,7 +48,7 @@ services:
   # Postgres database
   db:
     image: postgres:17-alpine
-    container_name: listmonk_db
+    container_name: scr_mailer_db
     restart: unless-stopped
     ports:
       - "127.0.0.1:5432:5432"                                 # Only bind on the local interface. To connect to Postgres externally, change this to 0.0.0.0

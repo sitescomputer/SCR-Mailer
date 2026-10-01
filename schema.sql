@@ -227,10 +227,10 @@ CREATE TABLE settings (
 );
 DROP INDEX IF EXISTS idx_settings_key; CREATE INDEX idx_settings_key ON settings(key);
 INSERT INTO settings (key, value) VALUES
-    ('app.site_name', '"Mailing list"'),
+    ('app.site_name', '"SCR Mailer"'),
     ('app.root_url', '"http://localhost:9000"'),
     ('app.favicon_url', '""'),
-    ('app.from_email', '"listmonk <noreply@listmonk.yoursite.com>"'),
+    ('app.from_email', '"Sites Computer Resources <noreply@example.com>"'),
     ('app.logo_url', '""'),
     ('app.concurrency', '10'),
     ('app.message_rate', '10'),
@@ -246,7 +246,7 @@ INSERT INTO settings (key, value) VALUES
     ('app.show_optin_page', 'true'),
     ('app.enable_public_archive_rss_content', 'true'),
     ('app.send_optin_confirmation', 'true'),
-    ('app.check_updates', 'true'),
+    ('app.check_updates', 'false'),
     ('app.notify_emails', '[]'),
     ('app.lang', '"en"'),
     ('privacy.individual_tracking', 'false'),
@@ -293,7 +293,7 @@ INSERT INTO settings (key, value) VALUES
     ('bounce.forwardemail', '{"enabled": false, "key": ""}'),
     ('bounce.lettermint', '{"enabled": false, "key": ""}'),
     ('bounce.mailboxes',
-        '[{"enabled":false, "type": "pop", "host":"pop.yoursite.com","port":995,"auth_protocol":"userpass","username":"username","password":"password","return_path": "bounce@listmonk.yoursite.com","scan_interval":"15m","tls_enabled":true,"tls_skip_verify":false}]'),
+        '[{"enabled":false, "type": "pop", "host":"pop.yoursite.com","port":995,"auth_protocol":"userpass","username":"username","password":"password","return_path": "bounce@example.com","scan_interval":"15m","tls_enabled":true,"tls_skip_verify":false}]'),
     ('appearance.admin.custom_css', '""'),
     ('appearance.admin.custom_js', '""'),
     ('appearance.public.custom_css', '""'),

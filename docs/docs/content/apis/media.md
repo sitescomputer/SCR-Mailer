@@ -51,14 +51,14 @@ Retrieve a specific media.
 ##### Example Request
 
 ```shell
-curl -u 'api_username:access_token' 'http://localhost:9000/api/media/7' 
+curl -u 'api_username:access_token' 'http://localhost:9000/api/media/7'
 ```
 
 ##### Example Response
 
 ```json
 {
-  "data": 
+  "data":
     {
         "id": 7,
         "uuid": "62e32e97-d6ca-4441-923f-b62607000dd1",
