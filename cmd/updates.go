@@ -10,7 +10,8 @@ import (
 	"golang.org/x/mod/semver"
 )
 
-const updateCheckURL = "https://update.listmonk.app/update.json"
+// SCR Mailer releases are reviewed in this fork; upstream announcements are not SCR releases.
+const updateCheckURL = ""
 
 type AppUpdate struct {
 	Update struct {
@@ -37,6 +38,10 @@ var reSemver = regexp.MustCompile(`-(.*)`)
 // at the given intervals. On detecting a new update (new semver), it
 // sets the global update status that renders a prompt on the UI.
 func (a *App) checkUpdates(curVersion string, interval time.Duration) {
+	if updateCheckURL == "" {
+		return
+	}
+
 	// Strip -* suffix.
 	curVersion = reSemver.ReplaceAllString(curVersion, "")
 

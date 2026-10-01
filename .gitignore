@@ -16,5 +16,9 @@ config.toml
 docker-compose.override.yml
 node_modules
 listmonk
+scr-mailer
+scr-mailer.exe
+.tools/
+/SCRcloudLogo-1.png
 dist/*
 uploads/

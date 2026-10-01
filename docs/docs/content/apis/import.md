@@ -102,7 +102,7 @@ Stop and delete an ongoing import.
 ##### Example Request
 
 ```shell
-curl -u "api_user:token" -X DELETE 'http://localhost:9000/api/import/subscribers' 
+curl -u "api_user:token" -X DELETE 'http://localhost:9000/api/import/subscribers'
 ```
 
 ##### Example Response

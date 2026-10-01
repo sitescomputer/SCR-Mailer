@@ -23,7 +23,7 @@ func install(lastVer string, db *sqlx.DB, fs stuffbin.FileSystem, prompt, idempo
 	fmt.Println("")
 	if !idempotent {
 		fmt.Println("** first time installation **")
-		fmt.Printf("** IMPORTANT: This will wipe existing listmonk tables and types in the DB '%s' **",
+		fmt.Printf("** IMPORTANT: This will wipe existing SCR Mailer tables and types in the DB '%s' **",
 			ko.String("db.database"))
 	} else {
 		fmt.Println("** first time (idempotent) installation **")
@@ -245,15 +245,15 @@ func installCampaign(campTplID, archiveTplID int, q *models.Queries) {
 	if _, err := q.CreateCampaign.Exec(uuid.Must(uuid.NewV4()),
 		models.CampaignTypeRegular,
 		"Test campaign",
-		"Welcome to listmonk",
-		"No Reply <noreply@yoursite.com>",
+		"Welcome to SCR Mailer",
+		"Sites Computer Resources <noreply@example.com>",
 		`<h3>Hi {{ .Subscriber.FirstName }}!</h3>
 		<p>This is a test e-mail campaign. Your second name is {{ .Subscriber.LastName }} and you are from {{ .Subscriber.Attribs.city }}.</p>
-		<p>Here is a <a href="https://listmonk.app@TrackLink">tracked link</a>.</p>
+		<p>Here is a <a href="https://github.com/sitescomputer/SCR-Mailer@TrackLink">tracked link</a>.</p>
 		<p>Use the link icon in the editor toolbar or when writing raw HTML or Markdown,
 			simply suffix @TrackLink to the end of a URL to turn it into a tracking link. Example:</p>
-		<pre>&lt;a href=&quot;https:/&zwnj;/listmonk.app&#064;TrackLink&quot;&gt;&lt;/a&gt;</pre>
-		<p>For help, refer to the <a href="https://listmonk.app/docs">documentation</a>.</p>
+		<pre>&lt;a href=&quot;https://github.com/sitescomputer/SCR-Mailer&#064;TrackLink&quot;&gt;&lt;/a&gt;</pre>
+		<p>For help, refer to the <a href="https://github.com/sitescomputer/SCR-Mailer/blob/master/docs/docs/content/index.md">documentation</a>.</p>
 		`,
 		nil,
 		"richtext",
@@ -265,7 +265,7 @@ func installCampaign(campTplID, archiveTplID int, q *models.Queries) {
 		campTplID,
 		pq.Int64Array{1},
 		false,
-		"welcome-to-listmonk",
+		"welcome-to-scr-mailer",
 		archiveTplID,
 		`{"name": "Subscriber"}`,
 		nil,
@@ -328,7 +328,7 @@ func installUser(username, password, apiUsername string, q *models.Queries) {
 	}
 
 	// Create the admin user.
-	if _, err := q.CreateUser.Exec(username, true, password, username+"@listmonk", username, auth.RoleTypeUser, role.ID, nil, auth.UserStatusEnabled); err != nil {
+	if _, err := q.CreateUser.Exec(username, true, password, username+"@example.com", username, auth.RoleTypeUser, role.ID, nil, auth.UserStatusEnabled); err != nil {
 		lo.Fatalf("error creating superadmin user: %v", err)
 	}
 

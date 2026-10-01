@@ -399,7 +399,7 @@
     "settings.bounces.action": "Toiminta",
     "settings.bounces.azureSharedSecret": "Azure Event Gridin jaettu salaisuus",
     "settings.bounces.azureSharedSecretHeader": "Azure jaetun salaisuuden otsikon nimi",
-    "settings.bounces.azureSharedSecretHeaderHelp": "Valinnainen HTTP-otsikon nimi, josta luetaan Azure jaettu salaisuus. Jos tyhjä, listmonk käyttää X-Listmonk-Webhook-Secret.",
+    "settings.bounces.azureSharedSecretHeaderHelp": "Valinnainen HTTP-otsikon nimi, josta luetaan Azure jaettu salaisuus. Jos tyhjä, SCR Mailer käyttää X-Listmonk-Webhook-Secret.",
     "settings.bounces.azureSharedSecretHelp": "Anna jaettu salaisuus, joka on määritetty Azure Event Gridin webhook-päätepisteellesi.",
     "settings.bounces.blocklist": "Estolista",
     "settings.bounces.count": "Bouncemittari",

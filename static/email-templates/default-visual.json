@@ -7,6 +7,7 @@
       "textColor": "#262626",
       "fontFamily": "MODERN_SANS",
       "childrenIds": [
+        "scr-brand",
         "block-1744970939431",
         "block-1744970976991",
         "block-1744971036169",
@@ -46,7 +47,7 @@
       },
       "props": {
         "markdown": true,
-        "text": "This is a test e-mail campaign. Your second name is {{ .Subscriber.LastName }} and this block of text is in Markdown.\n\nHere is a [tracked link](https://listmonk.app@TrackLink).\n\nUse the link icon in the editor toolbar or when writing raw HTML or Markdown, simply suffix @TrackLink to the end of a URL to turn it into a tracking link. Example:\n\n<a href=\"https:/‌/listmonk.app@TrackLink\"></a>\n\nFor help, refer to the [documentation](https://listmonk.app/docs)."
+        "text": "This is a test e-mail campaign. Your second name is {{ .Subscriber.LastName }} and this block of text is in Markdown.\n\nHere is a [tracked link](https://github.com/sitescomputer/SCR-Mailer@TrackLink).\n\nUse the link icon in the editor toolbar or when writing raw HTML or Markdown, simply suffix @TrackLink to the end of a URL to turn it into a tracking link. Example:\n\n<a href=\"https://github.com/sitescomputer/SCR-Mailer@TrackLink\"></a>\n\nFor help, refer to the [documentation](https://github.com/sitescomputer/SCR-Mailer/blob/master/docs/docs/content/index.md)."
       }
     }
   },
@@ -78,9 +79,9 @@
         }
       },
       "props": {
-        "buttonBackgroundColor": "#0055d4",
+        "buttonBackgroundColor": "#1179b6",
         "text": "This is a button",
-        "url": "https://listmonk.app"
+        "url": "https://github.com/sitescomputer/SCR-Mailer"
       }
     }
   },
@@ -123,6 +124,22 @@
       "props": {
         "markdown": true,
         "text": "<a href=\"{{ UnsubscribeURL }}\" style=\"color: #888;\">{{ L.T \"email.unsub\" }}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"{{ MessageURL }}\" style=\"color: #888;\">{{ L.T \"email.viewInBrowser\" }}</a>\n{{ TrackView }}"
+      }
+    }
+  },
+  "scr-brand": {
+    "type": "Html",
+    "data": {
+      "props": {
+        "contents": "<p style=\"text-align:center;\"><img src=\"{{ LogoURL }}\" alt=\"{{ CompanyName }}\" width=\"120\" /><br /><strong>{{ ProductName }}</strong><br />{{ CompanyName }}</p>"
+      },
+      "style": {
+        "padding": {
+          "top": 16,
+          "bottom": 16,
+          "left": 24,
+          "right": 24
+        }
       }
     }
   }

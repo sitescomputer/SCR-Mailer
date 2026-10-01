@@ -11,15 +11,15 @@
   <link href="{{ .Site.BaseURL }}static/style.css" rel="stylesheet" type="text/css" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="icon" href="{{ .Site.BaseURL }}static/images/favicon.webp" type="image/webp" />
+  <link rel="icon" href="{{ .Site.BaseURL }}static/images/favicon.png" type="image/png" />
 
   <meta property="og:title" content="{{ .Title }}" />
   {{ if .Params.thumbnail }}
     <link rel="image_src" href="{{ .Site.BaseURL }}static/images/{{ .Params.thumbnail }}" />
     <meta property="og:image" content="{{ .Site.BaseURL }}static/images/{{ .Params.thumbnail }}" />
   {{ else }}
-    <link rel="image_src" href="{{ .Site.BaseURL }}static/images/thumbnail.webp" />
-    <meta property="og:image" content="{{ .Site.BaseURL }}static/images/thumbnail.webp" />
+    <link rel="image_src" href="{{ .Site.BaseURL }}static/images/logo.png" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}static/images/logo.png" />
   {{ end }}
 </head>
 <body>
@@ -28,13 +28,13 @@
   <header class="header">
     <div class="row">
       <div class="col-2 logo">
-        <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}static/images/logo.svg" alt="Listmonk logo" /></a>
+        <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}static/images/logo.png" alt="{{ .Site.Params.companyName }}" /></a>
       </div>
       <nav class="col-10">
-        <a class="item" href="/#download">Download</a>
-        <a class="item" href="/docs">Docs</a>
+        <a class="item" href="{{ .Site.BaseURL }}#download">Download</a>
+        <a class="item" href="{{ .Site.BaseURL }}docs/">Docs</a>
         <div class="github-btn">
-          <a class="github-button" href="https://github.com/knadh/listmonk" data-size="large" data-show-count="true" aria-label="knadh/listmonk on GitHub">GitHub</a>
+          <a class="github-button" href="https://github.com/sitescomputer/SCR-Mailer" data-size="large" data-show-count="true" aria-label="SCR Mailer on GitHub">GitHub</a>
         </div>
       </nav>
     </div>

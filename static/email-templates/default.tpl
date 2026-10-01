@@ -38,7 +38,7 @@
             }
 
             .button {
-                background: #0055d4;
+                background: #1179b6;
                 border-radius: 3px;
                 text-decoration: none !important;
                 color: #fff !important;
@@ -70,7 +70,7 @@
             }
 
             a {
-                color: #0055d4;
+                color: #1179b6;
             }
                 a:hover {
                     color: #111;
@@ -88,6 +88,7 @@
 <body style="background-color: #F0F1F3;font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, sans-serif;font-size: 15px;line-height: 26px;margin: 0;color: #444;">
     <div class="gutter" style="padding: 30px;">&nbsp;</div>
     <div class="wrap" style="background-color: #fff;padding: 30px;max-width: 525px;margin: 0 auto;border-radius: 5px;">
+        <p style="text-align:center;"><img src="{{ LogoURL }}" alt="{{ CompanyName }}" width="120" style="width:120px;height:auto;" /><br /><strong>{{ ProductName }}</strong></p>
         {{ template "content" . }}
     </div>
     
@@ -98,6 +99,7 @@
             <a href="{{ MessageURL }}" style="color: #888;">{{ L.T "email.viewInBrowser" }}</a>
         </p>
     </div>
+    <p style="text-align:center;font-size:12px;color:#888;">{{ ProductName }} by <a href="{{ CompanyURL }}" style="color:#888;">{{ CompanyName }}</a></p>
     <div class="gutter" style="padding: 30px;">&nbsp;{{ TrackView }}</div>
 </body>
 </html>

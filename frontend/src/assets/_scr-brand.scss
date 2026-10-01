@@ -1,0 +1,30 @@
+// SCR identity overrides live here to reduce conflicts with upstream styles.
+$scr-blue: #1179b6;
+
+.navbar .logo > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 14px;
+  color: #173b56;
+}
+
+.navbar .scr-brand-logo {
+  width: 58px;
+  height: 40px;
+  max-height: none;
+  object-fit: contain;
+}
+
+.scr-brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+
+  strong { font-size: 18px; }
+  small { font-size: 11px; color: #526675; }
+}
+
+@media screen and (max-width: 480px) {
+  .scr-brand-copy small { display: none; }
+}

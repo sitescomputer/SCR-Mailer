@@ -23,3 +23,9 @@
 **/values.dev.yaml
 LICENSE
 README.md
+.tools/
+frontend/dist/
+frontend/email-builder/dist/
+frontend/public/static/email-builder/
+scr-mailer.exe
+SCRcloudLogo-1.png

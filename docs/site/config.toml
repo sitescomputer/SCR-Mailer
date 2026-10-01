@@ -1,6 +1,12 @@
-baseurl = "https://listmonk.app/"
+baseurl = "https://sitescomputer.github.io/SCR-Mailer/"
 languageCode = "en-us"
-title = "listmonk - Free and open source self-hosted newsletter, mailing list manager, and transactional mails"
+title = "SCR Mailer | Sites Computer Resources"
+
+[params]
+  productName = "SCR Mailer"
+  companyName = "Sites Computer Resources"
+  companyURL = "https://github.com/sitescomputer/SCR-Mailer"
+  repositoryURL = "https://github.com/sitescomputer/SCR-Mailer"
 
 [taxonomies]
   tag = "tags"

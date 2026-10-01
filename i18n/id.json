@@ -399,7 +399,7 @@
     "settings.bounces.action": "Aksi",
     "settings.bounces.azureSharedSecret": "Rahasia Bersama Azure Event Grid",
     "settings.bounces.azureSharedSecretHeader": "Nama Header Rahasia Bersama Azure",
-    "settings.bounces.azureSharedSecretHeaderHelp": "Nama header HTTP opsional untuk membaca rahasia bersama Azure. Jika kosong, listmonk menggunakan X-Listmonk-Webhook-Secret.",
+    "settings.bounces.azureSharedSecretHeaderHelp": "Nama header HTTP opsional untuk membaca rahasia bersama Azure. Jika kosong, SCR Mailer menggunakan X-Listmonk-Webhook-Secret.",
     "settings.bounces.azureSharedSecretHelp": "Sediakan rahasia bersama yang dikonfigurasi untuk endpoint webhook Azure Event Grid Anda.",
     "settings.bounces.blocklist": "Daftar blokir",
     "settings.bounces.count": "Jumlah pantulan",

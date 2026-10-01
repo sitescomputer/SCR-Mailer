@@ -1,22 +1,31 @@
-name: Build Sanity Check
-
+name: SCR Mailer build
 on:
-    pull_request:
-      types:
-        - opened
-  
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
         with:
-          go-version: "1.26.1"
-
-      - name: Prepare Dependencies and Build
+          go-version-file: .go-version
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare Yarn
+        run: corepack enable
+      - name: Test backend
+        run: go test ./...
+      - name: Build branded application
         run: make dist
+        env:
+          CYPRESS_INSTALL_BINARY: '0'
+      - name: Validate container configuration
+        run: docker compose config --quiet
+      - name: Build runtime container
+        run: docker build -t scr-mailer:check .

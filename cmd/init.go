@@ -35,6 +35,7 @@ import (
 	"github.com/knadh/koanf/providers/file"
 	"github.com/knadh/koanf/providers/posflag"
 	"github.com/knadh/koanf/v2"
+	"github.com/knadh/listmonk/branding"
 	"github.com/knadh/listmonk/internal/auth"
 	"github.com/knadh/listmonk/internal/bounce"
 	"github.com/knadh/listmonk/internal/bounce/mailbox"
@@ -458,11 +459,19 @@ func initSettings(query string, db *sqlx.DB, ko *koanf.Koanf) {
 
 func initUrlConfig(ko *koanf.Koanf) *UrlConfig {
 	root := strings.TrimSuffix(ko.String("app.root_url"), "/")
+	logo := ko.String("app.logo_url")
+	if logo == "" {
+		logo = root + "/public/static/logo.png"
+	}
+	favicon := ko.String("app.favicon_url")
+	if favicon == "" {
+		favicon = root + "/public/static/favicon.png"
+	}
 
 	return &UrlConfig{
 		RootURL:    root,
-		LogoURL:    ko.String("app.logo_url"),
-		FaviconURL: ko.String("app.favicon_url"),
+		LogoURL:    logo,
+		FaviconURL: favicon,
 		LoginURL:   path.Join(uriAdmin, "/login"),
 
 		// Static URLS.
@@ -492,6 +501,9 @@ func initConstConfig(ko *koanf.Koanf) *Config {
 	var c Config
 	if err := ko.Unmarshal("app", &c); err != nil {
 		lo.Fatalf("error loading app config: %v", err)
+	}
+	if c.SiteName == "" || c.SiteName == "Mailing list" || strings.EqualFold(c.SiteName, "listmonk") {
+		c.SiteName = branding.Current.ProductName
 	}
 	if err := ko.Unmarshal("privacy", &c.Privacy); err != nil {
 		lo.Fatalf("error loading app.privacy config: %v", err)
@@ -609,6 +621,7 @@ func initCampaignManager(msgrs []manager.Messenger, q *models.Queries, u *UrlCon
 		MessageURL:            u.MessageURL,
 		ArchiveURL:            u.ArchiveURL,
 		RootURL:               u.RootURL,
+		LogoURL:               u.LogoURL,
 		UnsubHeader:           ko.Bool("privacy.unsubscribe_header"),
 		SlidingWindow:         ko.Bool("app.message_sliding_window"),
 		SlidingWindowDuration: ko.Duration("app.message_sliding_window_duration"),
@@ -1103,6 +1116,8 @@ func initTplFuncs(i *i18n.I18n, u *UrlConfig) template.FuncMap {
 			return template.HTML(safeHTML)
 		},
 	}
+
+	maps.Copy(funcs, branding.TemplateFuncs())
 
 	// Copy spring functions.
 	sprigFuncs := sprig.GenericFuncMap()
